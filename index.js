@@ -6,6 +6,7 @@ dotenv.config();
 const CoinGecko = require('coingecko-api')
 const CoinGeckoClient = new CoinGecko()
 
+const keepAlive = require("./server")
 
 const config = require("./config.json")
 const Discord = require("discord.js");
@@ -65,4 +66,5 @@ async function Initialize(){
   client.user.setAvatar(avatarUrl)    
 }
 
+keepAlive()
 client.login(process.env.TOKEN)
