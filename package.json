@@ -1,7 +1,7 @@
 {
   "name": "dyo-btcdiscordprice",
   "version": "1.0.0",
-  "description": "A bot for discord thats show the BTC price in your custom status",
+  "description": "A bot for discord thats show the Crypto price in your custom status",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dyonisio/dyo-btcdiscordprice.git"
+    "url": "git+https://github.com/dyonisio/dyo-cryptodiscordprice.git"
   },
   "keywords": [
     "bot",
@@ -19,15 +19,16 @@
   "author": "Mateus Dyonisio",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dyonisio/dyo-btcdiscordprice/issues"
+    "url": "https://github.com/dyonisio/dyo-cryptodiscordprice/issues"
   },
-  "homepage": "https://github.com/dyonisio/dyo-btcdiscordprice#readme",
+  "homepage": "https://github.com/dyonisio/dyo-cryptodiscordprice#readme",
   "dependencies": {
     "ascii-table": "^0.0.9",
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cheerio": "1.0.0-rc.9",
     "cli-columns": "^3.1.2",
+    "coingecko-api": "^1.0.10",
     "columnify": "^1.5.4",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
