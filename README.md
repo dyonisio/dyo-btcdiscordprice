@@ -17,7 +17,6 @@ NAME_BOT= # Name bot
 COIN= # ID Coingecko coin
 PRICE_COIN= # Coin to convert e.g brl
 PRICE_DECIMAL= # Decimal cents size
-PRICE_LOCALIZATION= # Localization format price e.g en-us
 ```
 
 Then run project
