@@ -3,6 +3,8 @@ const fs = require('fs-extra')
 const dotenv = require('dotenv');
 dotenv.config();
 
+const currency = require('currency.js')
+
 const CoinGecko = require('coingecko-api')
 const CoinGeckoClient = new CoinGecko()
 
@@ -36,27 +38,13 @@ async function getCoin(){
   let coinPrice = data.data.market_data.current_price[process.env.PRICE_COIN]
   let avatarUrl = data.data.image.large
 
-  var formatterUSD = new Intl.NumberFormat(process.env.PRICE_LOCALIZATION, {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: process.env.PRICE_DECIMAL
-  });
-
-  var formatterCOIN = new Intl.NumberFormat(process.env.PRICE_LOCALIZATION, {
-    style: 'currency',
-    currency: process.env.PRICE_COIN,
-    minimumFractionDigits: 0,
-    maximumFractionDigits: process.env.PRICE_DECIMAL 
-  }); 
-
   client.guilds.cache.map(guild => guild.members.cache.forEach(function(member){
     if(member.id == client.user.id)
       member.setNickname(process.env.NAME_BOT)
   }))   
 
   client.user.setUsername(`${process.env.NAME_BOT}`)
-  client.user.setActivity(`${formatterUSD.format(usdPrice)} | ${formatterCOIN.format(coinPrice)}`)
+  client.user.setActivity(`$${currency(usdPrice, {separator: '.', decimal: ',', pattern: '#', precision: process.env.PRICE_DECIMAL}).format()} | R$${currency(coinPrice, {separator: '.', decimal: ',', pattern: '#', precision: process.env.PRICE_DECIMAL}).format()}`)
 
   return avatarUrl;
 }
